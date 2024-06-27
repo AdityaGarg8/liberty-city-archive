@@ -1,0 +1,28 @@
+---
+name: Sketchy
+on:
+  schedule:
+    - cron: '30 18 * * *'
+  workflow_dispatch:
+
+jobs:
+  Zip:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 'Checkout Repo'
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Create Zip
+        run: |
+          wget https://nightly.link/AdityaGarg8/random/actions/runs/8783452691/firmware.zip
+          unzip -d sketchy firmware.zip
+
+      - name: Upload zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: "Sketchy"
+          path: ${{ github.workspace }}/sketchy
