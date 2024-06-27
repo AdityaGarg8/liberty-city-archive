@@ -10,18 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Free up disk space for the CI
-        uses: AdityaGarg8/remove-unwanted-software@v3
-        with:
-          remove-android: 'true'
-          remove-dotnet: 'true'
-          remove-haskell: 'true'
-          remove-codeql: 'true'
-          remove-docker-images: 'true'
-          remove-large-packages: 'true'
-          remove-cached-tools: 'true'
-          remove-swapfile: 'true'
-
       - name: 'Checkout Repo'
         uses: actions/checkout@v4
         with:
@@ -31,12 +19,11 @@ jobs:
       - name: Create Zip
         run: |
           curl -L -O https://nightly.link/AdityaGarg8/random/actions/runs/8783452691/firmware.zip
-          unzip firmware.zip
-          tar xvf sketchy.tar.gz
+          unzip -d sketchy firmware.zip
           tree
 
       - name: Upload zip
         uses: actions/upload-artifact@v4
         with:
           name: "Sketchy"
-          path: ${{ github.workspace }}/sketchy
+          path: ${{ github.workspace }}/sketchy/sketchy.tar.gz
