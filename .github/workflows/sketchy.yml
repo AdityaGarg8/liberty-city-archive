@@ -18,8 +18,8 @@ jobs:
 
       - name: Create Zip
         run: |
-          curl -L -O https://nightly.link/AdityaGarg8/random/actions/runs/8783452691/firmware.zip
-          unzip -d sketchy firmware.zip
+          curl -L -O https://nightly.link/AdityaGarg8/MBBS/actions/runs/9692828701/Sketchy.zip
+          unzip -d sketchy Sketchy.zip
           tree
 
       - name: Upload zip
