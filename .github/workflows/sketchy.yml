@@ -18,7 +18,7 @@ jobs:
 
       - name: Create Zip
         run: |
-          curl -O https://nightly.link/AdityaGarg8/random/actions/runs/8783452691/firmware.zip
+          curl -L -O https://nightly.link/AdityaGarg8/random/actions/runs/8783452691/firmware.zip
           unzip -d sketchy firmware.zip
           tree
 
