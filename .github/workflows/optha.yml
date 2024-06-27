@@ -2,6 +2,9 @@
 name: Rajarathna Opthalmology
 
 on:
+  push:
+    paths:
+      - '.github/workflows/optha.yml'
   workflow_dispatch:
 
 jobs:
