@@ -9,9 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: 'Checkout Repo'
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
       - name: Create Zip
         run: |
-          gh release download "optha" -D "optha" -R AdityaGarg8/MBBS
+          gh release download optha -D optha -R AdityaGarg8/MBBS
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -19,4 +25,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: "Rajarathna Opthalmology"
-          path: ${{ github.workspace }}/"optha"
+          path: ${{ github.workspace }}/optha
