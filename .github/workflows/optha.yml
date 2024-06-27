@@ -1,0 +1,22 @@
+---
+name: Rajarathna Opthalmology
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Zip:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Create Zip
+        run: |
+          gh release download "Rajarathna Opthalmology" -D "Rajarathna Opthalmology" -R AdityaGarg8/MBBS
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: "Rajarathna Opthalmology"
+          path: ${{ github.workspace }}/"Rajarathna Opthalmology"
