@@ -18,8 +18,9 @@ jobs:
 
       - name: Create Zip
         run: |
-          wget https://nightly.link/AdityaGarg8/random/actions/runs/8783452691/firmware.zip
+          curl -O https://nightly.link/AdityaGarg8/random/actions/runs/8783452691/firmware.zip
           unzip -d sketchy firmware.zip
+          tree
 
       - name: Upload zip
         uses: actions/upload-artifact@v4
