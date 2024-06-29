@@ -10,12 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: 'Checkout Repo'
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-
       - name: Create Zip
         run: |
           curl -L -O https://nightly.link/AdityaGarg8/MBBS/actions/runs/9692828701/Sketchy.zip
