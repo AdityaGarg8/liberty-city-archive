@@ -7,7 +7,7 @@ on:
 
 jobs:
   Zip:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
 
       - name: Create Zip
