@@ -7,9 +7,21 @@ on:
 
 jobs:
   Zip:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
 
+      - name: Free up disk space for the CI
+        uses: AdityaGarg8/remove-unwanted-software@v4
+        with:
+          remove-android: 'true'
+          remove-dotnet: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
+          remove-docker-images: 'true'
+          remove-large-packages: 'true'
+          remove-cached-tools: 'true'
+          remove-swapfile: 'true'
+       
       - name: Create Zip
         run: |
           curl -L -O https://nightly.link/AdityaGarg8/MBBS/actions/runs/9692828701/Sketchy.zip
