@@ -24,7 +24,7 @@ jobs:
        
       - name: Create Zip
         run: |
-          curl -L -O https://nightly.link/AdityaGarg8/MBBS/actions/runs/11019944356/Sketchy.zip
+          curl -L -O https://nightly.link/AdityaGarg8/MBBS/actions/runs/12456760940/Sketchy.zip
           unzip -d sketchy Sketchy.zip
           tree
 
