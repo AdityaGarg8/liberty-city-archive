@@ -25,8 +25,8 @@ jobs:
        
       - name: Create Zip
         run: |
-          curl -L -O https://nightly.link/AdityaGarg8/random/actions/runs/12803481210/Liberty%20City%20Preservation%20Project%20-%20FiveM.zip
-          #unzip -d sketchy Sketchy.zip
+          curl -L https://nightly.link/AdityaGarg8/random/actions/runs/12803481210/Liberty%20City%20Preservation%20Project%20-%20FiveM.zip > liberty.zip
+          unzip -d liberty liberty.zip
           tree
 
       - name: Upload zip
