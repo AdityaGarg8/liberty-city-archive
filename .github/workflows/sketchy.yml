@@ -1,5 +1,5 @@
 ---
-name: Sketchy
+name: Liberty City
 on:
   schedule:
     - cron: '30 18 * * *'
@@ -24,8 +24,8 @@ jobs:
        
       - name: Create Zip
         run: |
-          curl -L -O https://nightly.link/AdityaGarg8/MBBS/actions/runs/12456760940/Sketchy.zip
-          unzip -d sketchy Sketchy.zip
+          curl -L -O https://nightly.link/AdityaGarg8/random/actions/runs/12803481210/Liberty%20City%20Preservation%20Project%20-%20FiveM.zip
+          #unzip -d sketchy Sketchy.zip
           tree
 
       - name: Upload zip
