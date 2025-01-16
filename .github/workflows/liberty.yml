@@ -11,6 +11,7 @@ jobs:
     steps:
 
       - name: Free up disk space for the CI
+        if: false
         uses: AdityaGarg8/remove-unwanted-software@v4
         with:
           remove-android: 'true'
