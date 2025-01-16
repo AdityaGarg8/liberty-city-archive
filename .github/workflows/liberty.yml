@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  Zip:
-    runs-on: ubuntu-latest
+  FiveM:
+    runs-on: macos-latest
     steps:
 
       - name: Free up disk space for the CI
@@ -32,5 +32,33 @@ jobs:
       - name: Upload zip
         uses: actions/upload-artifact@v4
         with:
-          name: "Sketchy"
-          path: ${{ github.workspace }}/sketchy/sketchy.tar.gz
+          name: 'Liberty City Preservation Project - FiveM'
+          path: ${{ github.workspace }}/liberty/*.zip
+  Non-HD:
+    runs-on: macos-latest
+    steps:
+
+      - name: Free up disk space for the CI
+        if: false
+        uses: AdityaGarg8/remove-unwanted-software@v4
+        with:
+          remove-android: 'true'
+          remove-dotnet: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
+          remove-docker-images: 'true'
+          remove-large-packages: 'true'
+          remove-cached-tools: 'true'
+          remove-swapfile: 'true'
+       
+      - name: Create Zip
+        run: |
+          curl -L https://nightly.link/AdityaGarg8/random/actions/runs/12803564800/Liberty%20City%20Preservation%20Project%20-%20Singleplayer.zip > liberty.zip
+          unzip -d liberty liberty.zip
+          tree
+
+      - name: Upload zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'Liberty City Preservation Project - Singleplayer'
+          path: ${{ github.workspace }}/liberty/*.zip
